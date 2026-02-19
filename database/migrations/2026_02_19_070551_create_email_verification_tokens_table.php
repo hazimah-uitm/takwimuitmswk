@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePositionsTable extends Migration
+class CreateEmailVerificationTokensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreatePositionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('positions', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('grade')->unique();
-            $table->boolean('publish_status');
-            $table->softDeletes();
+        Schema::create('email_verification_tokens', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('user_id')->unique();
+            $table->string('token')->unique();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreatePositionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('positions');
+        Schema::dropIfExists('email_verification_tokens');
     }
 }

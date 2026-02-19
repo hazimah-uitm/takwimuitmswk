@@ -68,9 +68,11 @@
 
     <!-- Bootstrap JS -->
     <script src="{{ asset('public/assets/js/bootstrap.bundle.min.js') }}"></script>
+
     <!--plugins-->
     <script src="{{ asset('public/assets/js/jquery.min.js') }}"></script>
-
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
     <script src="{{ asset('public/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
     <script src="{{ asset('public/assets/plugins/chartjs/chart.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/index.js') }}"></script>
@@ -95,7 +97,7 @@
         var currentYear = new Date().getFullYear();
 
         // Update the content of the element with the current year
-        document.getElementById("copyright").innerHTML = 'Copyright © ' + currentYear +
+        document.getElementById("copyright").innerHTML = ' © ' + currentYear +
             ' <a href="https://sarawak.uitm.edu.my/" target="_blank">UiTM Cawangan Sarawak</a>.';
     </script>
     <script>
@@ -137,6 +139,7 @@
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
 </body>
 
 </html>
