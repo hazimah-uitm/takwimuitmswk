@@ -124,6 +124,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/event/trash', 'EventController@trashList')->name('event.trash');
     Route::get('/event/{id}/restore', 'EventController@restore')->name('event.restore');
     Route::delete('/event/{id}/force-delete', 'EventController@forceDelete')->name('event.forceDelete');
+    Route::delete('/event/attachment/{id}', 'EventController@deleteAttachment')
+        ->name('event.attachment.delete');
 
     //Ptj
     Route::get('ptj/create', 'PtjController@create')->name('ptj.create');

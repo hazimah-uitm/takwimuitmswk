@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\EventAttachment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
@@ -183,6 +184,23 @@ class EventController extends Controller
             'perPage'   => $perPage,
             'search'    => $search,
         ]);
+    }
+
+    public function deleteAttachment($id)
+    {
+        $att = EventAttachment::findOrFail($id);
+
+        // padam fail fizikal
+        if (!empty($att->file_path) && Storage::disk('public')->exists($att->file_path)) {
+            Storage::disk('public')->delete($att->file_path);
+        }
+
+        $eventId = $att->event_id;
+
+        // padam rekod DB
+        $att->delete();
+
+        return redirect()->route('event.edit', $eventId)->with('success', 'Lampiran berjaya dipadam');
     }
 
     public function destroy(Request $request, $id)

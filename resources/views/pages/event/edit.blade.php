@@ -225,6 +225,8 @@
                         </div>
                     @endif
 
+
+
                     <small class="text-muted">Contoh: Poster / Aturcara / Infografik Program. <br> Format: JPG atau PNG
                         sahaja. Maksimum 5MB setiap gambar.</small>
 
@@ -238,10 +240,21 @@
                         <div class="row mt-2">
                             @foreach ($existingAttachments as $att)
                                 <div class="col-md-3 mb-3">
-                                    <a href="{{ asset('public/storage/' . $att->file_path) }}" target="_blank">
-                                        <img src="{{ asset('public/storage/' . $att->file_path) }}"
-                                            class="img-fluid rounded border" alt="Lampiran">
-                                    </a>
+                                    <div class="border rounded p-2 position-relative">
+
+                                        <a href="{{ asset('public/storage/' . $att->file_path) }}" target="_blank">
+                                            <img src="{{ asset('public/storage/' . $att->file_path) }}"
+                                                class="img-fluid rounded" alt="Lampiran">
+                                        </a>
+
+                                        <button type="button" class="btn btn-sm btn-danger position-absolute"
+                                            style="top:8px; right:8px;" data-bs-toggle="modal"
+                                            data-bs-target="#deleteAttachmentModal" data-attach-id="{{ $att->id }}"
+                                            data-attach-img="{{ asset('public/storage/' . $att->file_path) }}">
+                                            <i class="bx bx-trash"></i>
+                                        </button>
+
+                                    </div>
                                 </div>
                             @endforeach
                         </div>
@@ -253,4 +266,58 @@
             </form>
         </div>
     </div>
+
+    <!-- Delete Attachment Modal -->
+    <div class="modal fade" id="deleteAttachmentModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Padam Lampiran</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+
+                <div class="modal-body">
+                    <p class="mb-2">Anda pasti padam lampiran ini?</p>
+
+                    <img id="delPreviewImg" src="" class="img-fluid rounded border" alt="Preview">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+
+                    <form id="deleteAttachmentForm" method="POST" action="">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        <button type="submit" class="btn btn-danger">Ya, Padam</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById('deleteAttachmentModal');
+            if (!modal) return;
+
+            modal.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget;
+                var attachId = button.getAttribute('data-attach-id');
+                var imgSrc = button.getAttribute('data-attach-img');
+
+                // set preview
+                var preview = document.getElementById('delPreviewImg');
+                if (preview) preview.src = imgSrc;
+
+                // set action form delete
+                var form = document.getElementById('deleteAttachmentForm');
+                if (form) {
+                    // route: event.attachment.delete
+                    form.action = "{{ url('/event/attachment') }}/" + attachId;
+                }
+            });
+        });
+    </script>
 @endsection
