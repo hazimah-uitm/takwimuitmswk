@@ -18,6 +18,15 @@
         </a>
     </li>
 
+    <li class="menu-label">Pengurusan Takwim</li>
+
+    <li class="{{ Request::is('event*') ? 'mm-active' : '' }}">
+        <a href="{{ route('event') }}">
+            <div class="parent-icon"><i class="bx bx-folder-open"></i></div>
+            <div class="menu-title">Takwim</div>
+        </a>
+    </li>
+
     @hasanyrole('Superadmin|Admin')
         <li class="menu-label">Pengurusan Pengguna</li>
 

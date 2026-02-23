@@ -48,6 +48,11 @@ Route::middleware('auth')->group(function () {
     Route::get('campus/view/{id}', 'CampusController@show')->name('campus.show');
     Route::get('/campus/search', 'CampusController@search')->name('campus.search');
 
+    //Event
+    Route::get('event', 'EventController@index')->name('event');
+    Route::get('event/view/{id}', 'EventController@show')->name('event.show');
+    Route::get('/event/search', 'EventController@search')->name('event.search');
+
     //Ptj
     Route::get('ptj', 'PtjController@index')->name('ptj');
     Route::get('ptj/view/{id}', 'PtjController@show')->name('ptj.show');
@@ -109,6 +114,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/campus/trash', 'CampusController@trashList')->name('campus.trash');
     Route::get('/campus/{id}/restore', 'CampusController@restore')->name('campus.restore');
     Route::delete('/campus/{id}/force-delete', 'CampusController@forceDelete')->name('campus.forceDelete');
+
+    //Events
+    Route::get('event/create', 'EventController@create')->name('event.create');
+    Route::post('event/store', 'EventController@store')->name('event.store');
+    Route::get('event/{id}/edit', 'EventController@edit')->name('event.edit');
+    Route::post('event/{id}', 'EventController@update')->name('event.update');
+    Route::delete('event/{id}', 'EventController@destroy')->name('event.destroy');
+    Route::get('/event/trash', 'EventController@trashList')->name('event.trash');
+    Route::get('/event/{id}/restore', 'EventController@restore')->name('event.restore');
+    Route::delete('/event/{id}/force-delete', 'EventController@forceDelete')->name('event.forceDelete');
 
     //Ptj
     Route::get('ptj/create', 'PtjController@create')->name('ptj.create');
