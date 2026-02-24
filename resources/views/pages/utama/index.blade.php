@@ -82,7 +82,7 @@
                 navLinks: true,
                 nowIndicator: true,
                 dayMaxEvents: true,
-
+                displayEventTime: false,
                 events: "{{ route('public.events') }}",
 
                 eventClick: function(info) {
