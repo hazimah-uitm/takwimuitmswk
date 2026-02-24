@@ -63,6 +63,10 @@ Route::middleware('auth')->group(function () {
     Route::get('position/view/{id}', 'PositionController@show')->name('position.show');
     Route::get('/position/search', 'PositionController@search')->name('position.search');
 
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+    // endpoint JSON untuk FullCalendar tarik data event
+    Route::get('/dashboard/events', 'DashboardController@events')->name('dashboard.events');
 
     Route::get('/home', 'HomeController@index')->name('home');
 

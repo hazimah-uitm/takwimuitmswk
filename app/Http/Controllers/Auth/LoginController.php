@@ -14,7 +14,7 @@ class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     public function __construct()
     {
@@ -51,7 +51,7 @@ class LoginController extends Controller
 
     public function authenticated(Request $request, $user)
     {
-        return redirect()->route('home')->with('success', 'Anda telah berjaya log masuk!');
+        return redirect()->route('dashboard')->with('success', 'Anda telah berjaya log masuk!');
     }
 
     public function logout(Request $request)

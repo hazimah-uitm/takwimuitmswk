@@ -48,11 +48,15 @@
                 <div class="row">
                     {{-- Tarikh & Masa Mula --}}
                     <div class="col-md-6 mb-3">
-                        <label for="mula_at" class="form-label">Tarikh & Masa Mula <span
-                                class="text-danger">*</span></label>
-                        <input type="datetime-local" class="form-control {{ $errors->has('mula_at') ? 'is-invalid' : '' }}"
+                        <label for="mula_at" class="form-label">
+                            Tarikh & Masa Mula <span class="text-danger">*</span>
+                        </label>
+
+                        <input type="text" class="form-control {{ $errors->has('mula_at') ? 'is-invalid' : '' }}"
                             id="mula_at" name="mula_at"
-                            value="{{ old('mula_at') ?? (!empty($event->mula_at) ? $event->mula_at->format('Y-m-d\TH:i') : '') }}">
+                            value="{{ old('mula_at') ?? (!empty($event->mula_at) ? $event->mula_at->format('Y-m-d H:i') : '') }}"
+                            autocomplete="off">
+
                         @if ($errors->has('mula_at'))
                             <div class="invalid-feedback">
                                 @foreach ($errors->get('mula_at') as $error)
@@ -64,11 +68,15 @@
 
                     {{-- Tarikh & Masa Tamat --}}
                     <div class="col-md-6 mb-3">
-                        <label for="tamat_at" class="form-label">Tarikh & Masa Tamat (Jika ada)</label>
-                        <input type="datetime-local"
-                            class="form-control {{ $errors->has('tamat_at') ? 'is-invalid' : '' }}" id="tamat_at"
-                            name="tamat_at"
-                            value="{{ old('tamat_at') ?? (!empty($event->tamat_at) ? $event->tamat_at->format('Y-m-d\TH:i') : '') }}">
+                        <label for="tamat_at" class="form-label">
+                            Tarikh & Masa Tamat (Jika ada)
+                        </label>
+
+                        <input type="text" class="form-control {{ $errors->has('tamat_at') ? 'is-invalid' : '' }}"
+                            id="tamat_at" name="tamat_at"
+                            value="{{ old('tamat_at') ?? (!empty($event->tamat_at) ? $event->tamat_at->format('Y-m-d H:i') : '') }}"
+                            autocomplete="off">
+
                         @if ($errors->has('tamat_at'))
                             <div class="invalid-feedback">
                                 @foreach ($errors->get('tamat_at') as $error)
@@ -318,6 +326,71 @@
                     form.action = "{{ url('/event/attachment') }}/" + attachId;
                 }
             });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mulaEl = document.getElementById('mula_at');
+            const tamatEl = document.getElementById('tamat_at');
+
+            const tamatPicker = flatpickr(tamatEl, {
+                enableTime: true,
+                time_24hr: false,
+                minuteIncrement: 5,
+                dateFormat: "Y-m-d H:i", // backend
+                altInput: true,
+                altFormat: "d M Y h:i K", // display
+                allowInput: false,
+                onReady: function(selectedDates, dateStr, instance) {
+                    instance.altInput.setAttribute(
+                        'placeholder',
+                        'DD MMM YYYY HH:MM AM/PM'
+                    );
+                },
+                defaultDate: tamatEl.value ? tamatEl.value : null
+            });
+
+            const mulaPicker = flatpickr(mulaEl, {
+                enableTime: true,
+                time_24hr: false,
+                minuteIncrement: 5,
+                dateFormat: "Y-m-d H:i",
+                altInput: true,
+                altFormat: "d M Y h:i K",
+                allowInput: false,
+                defaultDate: mulaEl.value ? mulaEl.value : null,
+                onReady: function(selectedDates, dateStr, instance) {
+                    instance.altInput.setAttribute(
+                        'placeholder',
+                        'DD MMM YYYY HH:MM AM/PM'
+                    );
+                },
+                onChange: function(selectedDates) {
+                    const start = selectedDates[0] ?? null;
+
+                    if (!start) {
+                        tamatPicker.clear();
+                        tamatPicker.set('minDate', null);
+                        return;
+                    }
+
+                    tamatPicker.set('minDate', start);
+
+                    const end = tamatPicker.selectedDates[0] ?? null;
+                    if (end && end < start) tamatPicker.clear();
+                }
+            });
+
+            const startInit = mulaPicker.selectedDates[0] ?? null;
+            if (startInit) {
+                tamatPicker.set('minDate', startInit);
+
+                const endInit = tamatPicker.selectedDates[0] ?? null;
+                if (endInit && endInit < startInit) {
+                    tamatPicker.clear();
+                }
+            }
         });
     </script>
 @endsection

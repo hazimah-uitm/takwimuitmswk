@@ -34,8 +34,8 @@ class EventController extends Controller
     {
         $request->validate([
             'nama_program'    => 'required|string|max:255',
-            'mula_at'  => 'required|date_format:Y-m-d\TH:i',
-            'tamat_at' => 'nullable|date_format:Y-m-d\TH:i|after_or_equal:mula_at',
+            'mula_at'  => 'required|date_format:Y-m-d H:i',
+            'tamat_at' => 'nullable|date_format:Y-m-d H:i|after_or_equal:mula_at',
             'lokasi'          => 'nullable|string|max:255',
             'penganjur'       => 'nullable|string|max:255',
             'peringkat'       => 'nullable|string|max:50',
@@ -58,9 +58,9 @@ class EventController extends Controller
 
         $event->nama_program    = trim($request->nama_program);
         $event->created_by = auth()->id();
-        $event->mula_at  = Carbon::createFromFormat('Y-m-d\TH:i', $request->mula_at)->format('Y-m-d H:i:s');
+        $event->mula_at = Carbon::createFromFormat('Y-m-d H:i', $request->mula_at)->format('Y-m-d H:i:s');
         $event->tamat_at = $request->tamat_at
-            ? Carbon::createFromFormat('Y-m-d\TH:i', $request->tamat_at)->format('Y-m-d H:i:s')
+            ? Carbon::createFromFormat('Y-m-d H:i', $request->tamat_at)->format('Y-m-d H:i:s')
             : null;
         $event->lokasi          = $request->lokasi ? trim($request->lokasi) : null;
         $event->penganjur       = $request->penganjur ? trim($request->penganjur) : null;
@@ -109,8 +109,8 @@ class EventController extends Controller
     {
         $request->validate([
             'nama_program'    => 'required|string|max:255',
-            'mula_at'  => 'required|date_format:Y-m-d\TH:i',
-            'tamat_at' => 'nullable|date_format:Y-m-d\TH:i|after_or_equal:mula_at',
+            'mula_at'      => 'required|date_format:Y-m-d H:i',
+            'tamat_at'     => 'nullable|date_format:Y-m-d H:i|after_or_equal:mula_at',
             'lokasi'          => 'nullable|string|max:255',
             'penganjur'       => 'nullable|string|max:255',
             'peringkat'       => 'nullable|string|max:50',
@@ -132,9 +132,9 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
 
         $event->nama_program    = trim($request->nama_program);
-        $event->mula_at  = Carbon::createFromFormat('Y-m-d\TH:i', $request->mula_at)->format('Y-m-d H:i:s');
+        $event->mula_at = Carbon::createFromFormat('Y-m-d H:i', $request->mula_at)->format('Y-m-d H:i:s');
         $event->tamat_at = $request->tamat_at
-            ? Carbon::createFromFormat('Y-m-d\TH:i', $request->tamat_at)->format('Y-m-d H:i:s')
+            ? Carbon::createFromFormat('Y-m-d H:i', $request->tamat_at)->format('Y-m-d H:i:s')
             : null;
         $event->lokasi          = $request->lokasi ? trim($request->lokasi) : null;
         $event->penganjur       = $request->penganjur ? trim($request->penganjur) : null;

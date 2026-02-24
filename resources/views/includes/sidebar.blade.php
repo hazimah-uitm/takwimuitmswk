@@ -14,6 +14,12 @@
     <li class="{{ Request::routeIs('home') ? 'mm-active' : '' }}">
         <a href="{{ route('home') }}">
             <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
+            <div class="menu-title">Utama</div>
+        </a>
+    </li>
+    <li class="{{ Request::routeIs('dashboard') ? 'mm-active' : '' }}">
+        <a href="{{ route('dashboard') }}">
+            <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
             <div class="menu-title">Dashboard</div>
         </a>
     </li>

@@ -47,9 +47,13 @@
                 <div class="row">
                     {{-- Tarikh & Masa Mula --}}
                     <div class="col-md-6 mb-3">
-                        <label for="mula_at" class="form-label">Tarikh & Masa Mula <span class="text-danger">*</span></label>
-                        <input type="datetime-local" class="form-control {{ $errors->has('mula_at') ? 'is-invalid' : '' }}"
-                            id="mula_at" name="mula_at" value="{{ old('mula_at') }}">
+                        <label for="mula_at" class="form-label">
+                            Tarikh & Masa Mula <span class="text-danger">*</span>
+                        </label>
+
+                        <input type="text" class="form-control {{ $errors->has('mula_at') ? 'is-invalid' : '' }}"
+                            id="mula_at" name="mula_at" value="{{ old('mula_at') }}" autocomplete="off">
+
                         @if ($errors->has('mula_at'))
                             <div class="invalid-feedback">
                                 @foreach ($errors->get('mula_at') as $error)
@@ -61,9 +65,13 @@
 
                     {{-- Tarikh & Masa Tamat --}}
                     <div class="col-md-6 mb-3">
-                        <label for="tamat_at" class="form-label">Tarikh & Masa Tamat (Jika ada)</label>
-                        <input type="datetime-local" class="form-control {{ $errors->has('tamat_at') ? 'is-invalid' : '' }}"
-                            id="tamat_at" name="tamat_at" value="{{ old('tamat_at') }}">
+                        <label for="tamat_at" class="form-label">
+                            Tarikh & Masa Tamat (Jika ada)
+                        </label>
+
+                        <input type="text" class="form-control {{ $errors->has('tamat_at') ? 'is-invalid' : '' }}"
+                            id="tamat_at" name="tamat_at" value="{{ old('tamat_at') }}" autocomplete="off">
+
                         @if ($errors->has('tamat_at'))
                             <div class="invalid-feedback">
                                 @foreach ($errors->get('tamat_at') as $error)
@@ -80,7 +88,7 @@
                         <label for="lokasi" class="form-label">Lokasi</label>
                         <input type="text" class="form-control {{ $errors->has('lokasi') ? 'is-invalid' : '' }}"
                             id="lokasi" name="lokasi" value="{{ old('lokasi') }}" autocomplete="off"
-                            placeholder="Contoh: Jubli / Atas Talian">
+                            placeholder="Contoh: Dewan Jubli / Atas Talian / Hibrid">
                         @if ($errors->has('lokasi'))
                             <div class="invalid-feedback">
                                 @foreach ($errors->get('lokasi') as $error)
@@ -109,8 +117,8 @@
                     {{-- Peringkat --}}
                     <div class="col-md-6 mb-3">
                         <label for="peringkat" class="form-label">Peringkat</label>
-                        <select class="form-select {{ $errors->has('peringkat') ? 'is-invalid' : '' }}"
-                            id="peringkat" name="peringkat">
+                        <select class="form-select {{ $errors->has('peringkat') ? 'is-invalid' : '' }}" id="peringkat"
+                            name="peringkat">
                             <option value="">-- Pilih --</option>
                             @php
                                 $peringkatOptions = ['Kampus', 'Cawangan', 'Universiti', 'Kebangsaan', 'Antarabangsa'];
@@ -133,9 +141,10 @@
                     {{-- Pegawai Rujukan --}}
                     <div class="col-md-6 mb-3">
                         <label for="pegawai_rujukan" class="form-label">Pegawai Rujukan</label>
-                        <input type="text" class="form-control {{ $errors->has('pegawai_rujukan') ? 'is-invalid' : '' }}"
+                        <input type="text"
+                            class="form-control {{ $errors->has('pegawai_rujukan') ? 'is-invalid' : '' }}"
                             id="pegawai_rujukan" name="pegawai_rujukan" value="{{ old('pegawai_rujukan') }}"
-                            autocomplete="off" placeholder="Contoh: Pn. Aisyah / En. Ali">
+                            autocomplete="off">
                         @if ($errors->has('pegawai_rujukan'))
                             <div class="invalid-feedback">
                                 @foreach ($errors->get('pegawai_rujukan') as $error)
@@ -149,9 +158,8 @@
                 {{-- Agensi Terlibat --}}
                 <div class="mb-3">
                     <label for="agensi_terlibat" class="form-label">Agensi Terlibat (Jika ada)</label>
-                    <textarea class="form-control {{ $errors->has('agensi_terlibat') ? 'is-invalid' : '' }}"
-                        id="agensi_terlibat" name="agensi_terlibat" rows="2"
-                        placeholder="Contoh: MCMC, TM, ...">{{ old('agensi_terlibat') }}</textarea>
+                    <textarea class="form-control {{ $errors->has('agensi_terlibat') ? 'is-invalid' : '' }}" id="agensi_terlibat"
+                        name="agensi_terlibat" rows="2" placeholder="Contoh: Agensi Kerajaan / Swasta / NGO">{{ old('agensi_terlibat') }}</textarea>
                     @if ($errors->has('agensi_terlibat'))
                         <div class="invalid-feedback">
                             @foreach ($errors->get('agensi_terlibat') as $error)
@@ -166,12 +174,12 @@
                     Maklumat Ringkas
                 </h6>
 
-                
+
                 {{-- Catatan --}}
                 <div class="mb-3">
                     <label for="catatan" class="form-label">Deskripsi Program</label>
-                    <textarea class="form-control {{ $errors->has('catatan') ? 'is-invalid' : '' }}"
-                        id="catatan" name="catatan" rows="4">{{ old('catatan') }}</textarea>
+                    <textarea class="form-control {{ $errors->has('catatan') ? 'is-invalid' : '' }}" id="catatan" name="catatan"
+                        rows="4">{{ old('catatan') }}</textarea>
                     @if ($errors->has('catatan'))
                         <div class="invalid-feedback">
                             @foreach ($errors->get('catatan') as $error)
@@ -220,11 +228,66 @@
                         </div>
                     @endif
 
-                    <small class="text-muted">Contoh: Poster / Aturcara / Infografik Program. <br> Format: JPG atau PNG sahaja. Maksimum 5MB setiap gambar.</small>
+                    <small class="text-muted">Contoh: Poster / Aturcara / Infografik Program. Boleh lebih dari 1 fail.<br>
+                        Format: JPG atau PNG sahaja. Maksimum 5MB setiap gambar.</small>
                 </div>
 
                 <button type="submit" class="btn btn-primary">{{ $str_mode }}</button>
             </form>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mulaEl = document.getElementById('mula_at');
+            const tamatEl = document.getElementById('tamat_at');
+
+            const tamatPicker = flatpickr(tamatEl, {
+                enableTime: true,
+                time_24hr: false,
+                minuteIncrement: 5,
+                dateFormat: "Y-m-d H:i",
+                altInput: true,
+                altFormat: "d M Y h:i K",
+                allowInput: false,
+                onReady: function(selectedDates, dateStr, instance) {
+                    instance.altInput.setAttribute(
+                        'placeholder',
+                        'DD MMM YYYY HH:MM AM/PM'
+                    );
+                }
+            });
+
+            const mulaPicker = flatpickr(mulaEl, {
+                enableTime: true,
+                time_24hr: false,
+                minuteIncrement: 5,
+                dateFormat: "Y-m-d H:i",
+                altInput: true,
+                altFormat: "d M Y h:i K",
+                allowInput: false,
+                onReady: function(selectedDates, dateStr, instance) {
+                    instance.altInput.setAttribute(
+                        'placeholder',
+                        'DD MMM YYYY HH:MM AM/PM'
+                    );
+                },
+                onChange: function(selectedDates) {
+                    const start = selectedDates[0] ?? null;
+
+                    if (!start) {
+                        tamatPicker.clear();
+                        tamatPicker.set('minDate', null);
+                        return;
+                    }
+
+                    // 🔒 freeze tamat ikut mula
+                    tamatPicker.set('minDate', start);
+
+                    const end = tamatPicker.selectedDates[0] ?? null;
+                    if (end && end < start) tamatPicker.clear();
+                }
+            });
+        });
+    </script>
 @endsection

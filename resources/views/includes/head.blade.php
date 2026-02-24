@@ -25,5 +25,10 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
  <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
 
- <title>{{ config('app.name') }}</title>
+ {{-- FullCalendar CSS (CDN) --}}
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css">
 
+ {{-- Date time --}}
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+ <title>{{ config('app.name') }}</title>
