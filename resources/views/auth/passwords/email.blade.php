@@ -61,6 +61,16 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="{{ route('public.home') }}" class="btn btn-primary btn-sm">
+                                <i class="bx bx-home-alt me-2"></i>Laman Utama
+                            </a>
+
+                            <a href="{{ route('manual-pengguna') }}" target="_blank" class="btn btn-info btn-sm">
+                                <i class="bx bxs-file-pdf me-2"></i>Manual Pengguna
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

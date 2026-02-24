@@ -1197,3 +1197,16 @@ input.search-control-2::placeholder {
 		width: 100% !important
 	}
 }
+
+.wrapper-main {
+	padding-top: 4rem;
+	/* Adjust this value based on the height of your navbar */
+}
+
+/* Media query to adjust padding for smaller screens if needed */
+@media (max-width: 768px) {
+	.wrapper-main {
+		padding-top: 4rem;
+		/* You may need more padding on smaller screens */
+	}
+}

@@ -212,7 +212,7 @@
 
                 {{-- Lampiran baru --}}
                 <div class="mb-3">
-                    <label for="attachments" class="form-label">Tambah Lampiran (Jika ada)</label>
+                    <label for="attachments" class="form-label">Tambah Infografik / Aturcara / Poster Program (Jika ada)</label>
                     <input type="file" class="form-control {{ $errors->has('attachments') ? 'is-invalid' : '' }}"
                         id="attachments" name="attachments[]" multiple>
                     @if ($errors->has('attachments'))

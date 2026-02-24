@@ -14,8 +14,14 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('auth.login');
+    return redirect()->route('public.home');
 });
+
+// ===== PUBLIC =====
+Route::get('/utama', 'PublicController@home')->name('public.home');
+Route::get('/utama/events', 'PublicController@events')->name('public.events');
+Route::get('/utama/event/{id}', 'PublicController@eventShow')->name('public.event.show');
+Route::get('/utama/event-modal/{id}', 'PublicController@eventModal')->name('public.event.modal');
 
 // Login & logout function
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');

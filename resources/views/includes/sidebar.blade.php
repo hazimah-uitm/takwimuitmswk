@@ -11,15 +11,15 @@
 
 <!--navigation-->
 <ul class="metismenu" id="menu">
-    <li class="{{ Request::routeIs('home') ? 'mm-active' : '' }}">
-        <a href="{{ route('home') }}">
+    <li class="{{ Request::routeIs('public.home') ? 'mm-active' : '' }}">
+        <a href="{{ route('public.home') }}">
             <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
-            <div class="menu-title">Utama</div>
+            <div class="menu-title">Laman Utama</div>
         </a>
     </li>
     <li class="{{ Request::routeIs('dashboard') ? 'mm-active' : '' }}">
         <a href="{{ route('dashboard') }}">
-            <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
+            <div class="parent-icon"><i class="bx bx-grid-alt"></i></div>
             <div class="menu-title">Dashboard</div>
         </a>
     </li>

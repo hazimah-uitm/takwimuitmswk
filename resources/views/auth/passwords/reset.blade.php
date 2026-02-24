@@ -52,7 +52,8 @@
                                                 <label for="email" class="form-label">Alamat Emel</label>
                                                 <input type="email" readonly
                                                     class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
-                                                    id="email" name="email" value="{{ old('email', request()->query('email')) }}">
+                                                    id="email" name="email"
+                                                    value="{{ old('email', request()->query('email')) }}">
                                                 @if ($errors->has('email'))
                                                     <div class="invalid-feedback">
                                                         @foreach ($errors->get('email') as $error)
@@ -95,6 +96,16 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="{{ route('public.home') }}" class="btn btn-primary btn-sm">
+                                <i class="bx bx-home-alt me-2"></i>Laman Utama
+                            </a>
+
+                            <a href="{{ route('manual-pengguna') }}" target="_blank" class="btn btn-info btn-sm">
+                                <i class="bx bxs-file-pdf me-2"></i>Manual Pengguna
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -41,7 +41,8 @@
                                             <div class="col-12">
                                                 <label for="staff_id" class="form-label">No. Pekerja</label>
                                                 <input type="number" class="form-control" id="staff_id" name="staff_id"
-                                                    value="{{ old('staff_id') }}" required autocomplete="staff_id" autofocus>
+                                                    value="{{ old('staff_id') }}" required autocomplete="staff_id"
+                                                    autofocus>
                                             </div>
                                             <div class="col-12">
                                                 <label for="password" class="form-label">Kata Laluan</label>
@@ -62,7 +63,8 @@
                                             </div>
                                             <div class="col-md-7 text-end">
                                                 <a class="text-secondary" href="{{ route('password.request') }}">Reset Kata
-                                                    Laluan</a><br><a href="{{ route('firsttimelogin.form') }}">Pautan Pengesahan Baharu</a>
+                                                    Laluan</a><br><a href="{{ route('firsttimelogin.form') }}">Pautan
+                                                    Pengesahan Baharu</a>
                                                 {{-- <a href="{{ route('register') }}">Daftar
                                                     Akaun</a> --}}
                                             </div>
@@ -84,9 +86,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-end">
-                            <a href="{{ route('manual-pengguna') }}" target="_blank" class="btn btn-info btn-sm"><i
-                                    class="bx bxs-file-pdf me-2"></i>Manual Pengguna
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="{{ route('public.home') }}" class="btn btn-primary btn-sm">
+                                <i class="bx bx-home-alt me-2"></i>Laman Utama
+                            </a>
+
+                            <a href="{{ route('manual-pengguna') }}" target="_blank" class="btn btn-info btn-sm">
+                                <i class="bx bxs-file-pdf me-2"></i>Manual Pengguna
                             </a>
                         </div>
                     </div>

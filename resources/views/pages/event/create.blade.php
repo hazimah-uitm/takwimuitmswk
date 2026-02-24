@@ -207,7 +207,7 @@
 
                 {{-- Lampiran --}}
                 <div class="mb-3">
-                    <label for="attachments" class="form-label">Lampiran (Jika ada)</label>
+                    <label for="attachments" class="form-label">Infografik / Aturcara / Poster Program (Jika ada)</label>
                     <input type="file" class="form-control {{ $errors->has('attachments') ? 'is-invalid' : '' }}"
                         id="attachments" name="attachments[]" multiple accept="image/jpeg,image/png">
                     @if ($errors->has('attachments'))
