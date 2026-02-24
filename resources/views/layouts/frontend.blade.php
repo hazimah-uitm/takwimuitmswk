@@ -22,9 +22,6 @@
 
     <title>{{ config('app.name', 'Takwim UiTM Cawangan Sarawak') }}</title>
     <style>
-        #publicCalendar {
-            min-height: 650px;
-        }
 
         .fc .fc-toolbar-title {
             font-size: 1.05rem;

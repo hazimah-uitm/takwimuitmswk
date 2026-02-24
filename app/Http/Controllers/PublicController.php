@@ -127,4 +127,9 @@ class PublicController extends Controller
             'detail_url' => route('public.event.show', $event->id),
         ]);
     }
+
+    public function embed()
+    {
+        return view('pages.utama.embed');
+    }
 }

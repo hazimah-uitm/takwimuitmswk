@@ -1,26 +1,54 @@
-@extends('layouts.frontend')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@section('content')
-    <div class="wrapper-main">
-        <div class="container py-4">
-            <div class="d-flex align-items-center justify-content-between mb-1">
-                <h2 class="fw-500 mb-0" style="font-size: 1.3rem;">TAKWIM UiTM CAWANGAN SARAWAK</h2>
-            </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            <div class="text-muted small mb-3">
-                Klik pada nama program dalam kalendar untuk melihat maklumat lanjut.
-            </div>
+    <link rel="icon" href="{{ asset('public/assets/images/uitm-favicon.png') }}" type="image/png" />
+    <link href="{{ asset('public/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
+    <link href="{{ asset('public/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
+    <link href="{{ asset('public/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('public/assets/css/pace.min.css') }}" rel="stylesheet" />
+    <script src="{{ asset('public/assets/js/pace.min.js') }}"></script>
+    <link href="{{ asset('public/assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/css/bootstrap-extended.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="{{ asset('public/assets/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/css/icons.css') }}" rel="stylesheet">
+    {{-- Tom Select CSS + JS --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css">
 
-            <div class="row g-2">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="publicCalendar"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <title>{{ config('app.name', 'Takwim UiTM Cawangan Sarawak') }}</title>
+    <style>
+        .fc .fc-toolbar-title {
+            font-size: 1.05rem;
+        }
+
+        /* tinggi anggaran navbar */
+        :root {
+            --nav-h: 64px;
+        }
+
+        html,
+        body {
+            background: #ffffff !important;
+            margin: 0;
+            padding: 0;
+        }
+
+        @media (min-width: 992px) {
+            :root {
+                --nav-h: 72px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-2">
+        <div id="publicCalendar"></div>
     </div>
 
     <!-- Modal: Maklumat Program -->
@@ -39,7 +67,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <a href="#" id="eventModalDetailBtn" class="btn btn-primary">
+                    <a href="#" id="eventModalDetailBtn" class="btn btn-primary" target="_blank">
                         Lihat Penuh
                     </a>
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
@@ -265,4 +293,14 @@
             calendar.render();
         });
     </script>
-@endsection
+    <!-- Scripts -->
+    <script src="{{ asset('public/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('public/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('public/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
+    <script src="{{ asset('public/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('public/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('public/assets/js/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
+</body>
+
+</html>
