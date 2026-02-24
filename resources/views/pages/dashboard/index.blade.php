@@ -30,6 +30,8 @@
                     right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
                 },
 
+                displayEventTime: false,
+                
                 // tarik data dari controller
                 events: '{{ route('dashboard.events') }}',
 
