@@ -85,8 +85,8 @@
 
                                     <td class="text-nowrap">
                                         @php
-                                            $mula = $event->mula_at ? $event->mula_at->format('d M Y, H:i') : '-';
-                                            $tamat = $event->tamat_at ? $event->tamat_at->format('d M Y, H:i') : null;
+                                            $mula = $event->mula_at ? $event->mula_at->format('d M Y, h:i A') : '-';
+                                            $tamat = $event->tamat_at ? $event->tamat_at->format('d M Y, h:i A') : null;
                                         @endphp
 
                                         {{ $mula }}
