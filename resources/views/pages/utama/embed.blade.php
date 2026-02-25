@@ -43,6 +43,77 @@
                 --nav-h: 72px;
             }
         }
+
+        :root {
+            --fc-purple: #392E6A;
+            --fc-purple-weekend: #4e447e;
+            --ungu-soft: rgba(57, 46, 106, .18);
+        }
+
+        /* ===== BUTTON TOOLBAR (SEMUA) ===== */
+        #publicCalendar .fc .fc-button.fc-button-primary {
+            background-color: var(--ungu-utama) !important;
+            border-color: var(--ungu-utama) !important;
+            color: #fff !important;
+            box-shadow: none !important;
+            text-transform: capitalize;
+        }
+
+        #publicCalendar .fc .fc-button.fc-button-primary:hover {
+            background-color: var(--ungu-hover) !important;
+            border-color: var(--ungu-hover) !important;
+        }
+
+        /* Button aktif (month/week/list yang dipilih) */
+        #publicCalendar .fc .fc-button.fc-button-primary.fc-button-active {
+            background-color: var(--ungu-hover) !important;
+            border-color: var(--ungu-hover) !important;
+            color: #fff !important;
+        }
+
+        /* Button focus (bila klik) */
+        #publicCalendar .fc .fc-button.fc-button-primary:focus {
+            box-shadow: 0 0 0 .2rem var(--ungu-soft) !important;
+        }
+
+        /* Button disabled (kadang today jadi disabled) */
+        #publicCalendar .fc .fc-button.fc-button-primary:disabled {
+            background-color: rgba(57, 46, 106, .55) !important;
+            border-color: rgba(57, 46, 106, .55) !important;
+            color: #fff !important;
+            opacity: 1 !important;
+        }
+
+        /* Icon arrow < > */
+        #publicCalendar .fc .fc-button .fc-icon {
+            color: #fff !important;
+        }
+
+        /* ===============================
+       HEADER HARI BIASA (MON–FRI)
+       =============================== */
+        #publicCalendar .fc-col-header-cell {
+            background-color: var(--fc-purple);
+            border-color: var(--fc-purple);
+        }
+
+        /* ===============================
+       HEADER WEEKEND (SAT & SUN)
+       =============================== */
+        #publicCalendar th.fc-day-sat,
+        #publicCalendar th.fc-day-sun {
+            background-color: var(--fc-purple-weekend);
+            border-color: var(--fc-purple-weekend);
+        }
+
+        /* Teks nama hari */
+        #publicCalendar .fc-col-header-cell-cushion {
+            color: #fff !important;
+            font-weight: 500;
+            text-decoration: none;
+            padding: .45rem .25rem;
+            display: inline-block;
+        }
     </style>
 </head>
 
