@@ -12,7 +12,7 @@
 <!--navigation-->
 <ul class="metismenu" id="menu">
     <li class="{{ Request::routeIs('public.home') ? 'mm-active' : '' }}">
-        <a href="{{ route('public.home') }}">
+        <a href="{{ route('public.home') }}" target="_blank">
             <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
             <div class="menu-title">Laman Utama</div>
         </a>
