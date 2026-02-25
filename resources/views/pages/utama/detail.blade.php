@@ -91,15 +91,6 @@
                                         @endif
                                     </td>
                                 </tr>
-
-                                <tr class="border-top">
-                                    <th>Didaftarkan oleh</th>
-                                    <td>{{ optional($event->creator)->name ?? '-' }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Tarikh Didaftarkan</th>
-                                    <td>{{ optional($event->created_at)->format('d/m/Y') ?? '-' }}</td>
-                                </tr>
                             </table>
 
                         </div>

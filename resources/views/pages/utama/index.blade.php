@@ -231,10 +231,6 @@
                                 '<tr><th>Pegawai Rujukan</th><td>' + esc(data.pegawai_rujukan ||
                                     '-') + '</td></tr>' +
                                 '<tr><th>Pautan</th><td>' + pautanHtml + '</td></tr>' +
-                                '<tr><th>Didaftarkan oleh</th><td>' + esc(data
-                                    .creator || '-') + '</td></tr>' +
-                                '<tr><th>Tarikh Didaftarkan</th><td>' + esc(data.created_at ||
-                                    '-') + '</td></tr>' +
                                 '</table>' +
                                 '</div>' +
 
