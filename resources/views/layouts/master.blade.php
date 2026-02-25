@@ -3,6 +3,16 @@
 
 <head>
     @include('includes.head')
+    <style>
+        .event-img {
+            width: 100%;
+            height: 340px;
+            /* SEMUA sama tinggi */
+            object-fit: contain;
+            /* cover = cantik & konsisten */
+            background: #f8f9fa;
+        }
+    </style>
 </head>
 
 <body>

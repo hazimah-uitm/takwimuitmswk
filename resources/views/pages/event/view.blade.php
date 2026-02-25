@@ -147,7 +147,7 @@
                             <a href="{{ asset('public/storage/' . $img->file_path) }}" target="_blank"
                                 class="d-block text-decoration-none">
                                 <img src="{{ asset('public/storage/' . $img->file_path) }}"
-                                    class="img-fluid rounded border" alt="Lampiran">
+                                    class="img-fluid rounded border event-img" alt="Lampiran">
                             </a>
                         @else
                             <div id="{{ $carouselId }}" class="carousel slide" data-bs-ride="carousel">
@@ -157,9 +157,7 @@
                                             <a href="{{ asset('public/storage/' . $img->file_path) }}" target="_blank"
                                                 class="d-block">
                                                 <img src="{{ asset('public/storage/' . $img->file_path) }}"
-                                                    class="d-block w-100"
-                                                    style="max-height: 340px; object-fit: contain; background: #f8f9fa;"
-                                                    alt="Lampiran {{ $idx + 1 }}">
+                                                    class="d-block w-100 event-img" alt="Lampiran {{ $idx + 1 }}">
                                             </a>
                                         </div>
                                     @endforeach
