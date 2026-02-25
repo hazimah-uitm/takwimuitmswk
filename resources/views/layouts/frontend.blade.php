@@ -22,7 +22,6 @@
 
     <title>{{ config('app.name', 'Takwim UiTM Cawangan Sarawak') }}</title>
     <style>
-
         .fc .fc-toolbar-title {
             font-size: 1.05rem;
         }
@@ -42,17 +41,29 @@
         /* body { margin: 0; padding-top: calc(var(--nav-h) + 8px); } */
 
         .custom-navbar {
-            background: #fff;
+            background: #392E6A;
             box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
             z-index: 1040;
             /* pastikan sentiasa di atas */
+        }
+
+        .navbar-logo {
+            height: 38px;
+            width: auto;
+        }
+
+        .navbar-text-end {
+            font-weight: 400;
+            font-size: 1rem;
+            color: #ffffff;
+            white-space: nowrap;
         }
     </style>
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+    {{-- <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
         <div class="container">
             <a class="navbar-brand" href="{{ route('public.home') }}">UiTM CAWANGAN SARAWAK</a>
 
@@ -88,6 +99,27 @@
                     @endhasanyrole
                 </ul>
             </div>
+        </div>
+    </nav> --}}
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            {{-- LOGO KIRI --}}
+            <a href="{{ route('public.home') }}" class="navbar-brand">
+                <img src="{{ asset('public/assets/images/putih.png') }}" class="navbar-logo" alt="Logo UiTM">
+            </a>
+
+            {{-- NAMA UITM KANAN --}}
+            <div class="navbar-text-end d-none d-lg-block">
+                UiTM Cawangan Sarawak
+            </div>
+
+            {{-- TOGGLER (mobile) --}}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
         </div>
     </nav>
     <!-- End Navbar -->
