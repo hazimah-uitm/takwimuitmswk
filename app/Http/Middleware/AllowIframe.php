@@ -10,14 +10,12 @@ class AllowIframe
     {
         $response = $next($request);
 
-        // ❗ Buang X-Frame-Options supaya boleh embed (Blogger / iframe)
-        $response->headers->remove('X-Frame-Options');
+        $response->headers->set(
+            'Content-Security-Policy',
+            "frame-ancestors 'self' https://sarawak.uitm.edu.my https://unitsukan-ppdmukah.blogspot.com"
+        );
 
-        // OPTIONAL (lebih selamat): allow iframe dari Blogger sahaja
-        // $response->headers->set(
-        //     'Content-Security-Policy',
-        //     "frame-ancestors 'self' https://*.blogspot.com https://*.googleusercontent.com;"
-        // );
+        $response->headers->remove('X-Frame-Options');
 
         return $response;
     }
