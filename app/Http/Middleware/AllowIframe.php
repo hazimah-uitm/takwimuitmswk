@@ -12,7 +12,7 @@ class AllowIframe
 
         $response->headers->set(
             'Content-Security-Policy',
-            "frame-ancestors 'self' https://sarawak.uitm.edu.my https://unitsukan-ppdmukah.blogspot.com"
+            "frame-ancestors 'self' https://sarawak.uitm.edu.my"
         );
 
         $response->headers->remove('X-Frame-Options');
