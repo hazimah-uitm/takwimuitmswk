@@ -39,7 +39,6 @@ class PublicController extends Controller
 
         $data = $events->map(function ($e) {
 
-            // ✅ Bright palette (ulang kitar bila banyak event, tapi setiap event ID akan pick lain)
             $palette = [
                 '#2563EB',
                 '#16A34A',
@@ -58,18 +57,16 @@ class PublicController extends Controller
                 '#EF4444',
             ];
 
-            // ✅ guna ID (unik) supaya “setiap program/event lain warna”
             $index = ((int) $e->id) % count($palette);
             $bg = $palette[$index];
 
             return [
                 'id'    => $e->id,
-                'title' => $e->nama_program, // nama sahaja
+                'title' => $e->nama_program, 
                 'start' => Carbon::parse($e->mula_at)->toIso8601String(),
                 'end'   => $e->tamat_at ? Carbon::parse($e->tamat_at)->toIso8601String() : null,
                 'url'   => route('public.event.show', $e->id),
 
-                // 🎨 warna
                 'backgroundColor' => $bg,
                 'borderColor'     => $bg,
                 'textColor'       => '#ffffff',
@@ -110,8 +107,8 @@ class PublicController extends Controller
             'nama_program' => $event->nama_program,
             'catatan' => $event->catatan,
 
-            'mula_at' => $event->mula_at ? Carbon::parse($event->mula_at)->format('d M Y, H:i') : null,
-            'tamat_at' => $event->tamat_at ? Carbon::parse($event->tamat_at)->format('d M Y, H:i') : null,
+            'mula_at' => $event->mula_at ? Carbon::parse($event->mula_at)->format('d M Y, h:i A') : null,
+            'tamat_at' => $event->tamat_at ? Carbon::parse($event->tamat_at)->format('d M Y, h:i A') : null,
 
             'lokasi' => $event->lokasi,
             'penganjur' => $event->penganjur,
