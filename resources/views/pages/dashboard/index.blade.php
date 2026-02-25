@@ -5,13 +5,13 @@
         <div class="row mb-3">
             <div class="col">
                 <h5 class="mb-0">TAKWIM UiTM CAWANGAN SARAWAK</h5>
-                <small class="text-muted">Klik program untuk lihat maklumat penuh.</small>
             </div>
         </div>
 
         <div class="card">
             <div class="card-body">
                 <div id="calendar"></div>
+                <small class="text-muted fst-italic">*Sila klik program untuk maklumat lanjut. Tarikh dan masa program tertakluk pada pindaan.</small>
             </div>
         </div>
     </div>

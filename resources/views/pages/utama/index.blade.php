@@ -2,13 +2,9 @@
 
 @section('content')
     <div class="wrapper-main">
-        <div class="container py-4">
+        <div class="container py-4 mt-3">
             <div class="d-flex align-items-center justify-content-between mb-1">
                 <h2 class="fw-500 mb-0" style="font-size: 1.3rem;">TAKWIM UiTM CAWANGAN SARAWAK</h2>
-            </div>
-
-            <div class="text-muted small mb-3">
-                Klik pada nama program dalam kalendar untuk melihat maklumat lanjut.
             </div>
 
             <div class="row g-2">
@@ -16,6 +12,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div id="publicCalendar"></div>
+                            <small class="text-muted fst-italic">*Sila klik program untuk maklumat lanjut. Tarikh dan masa program tertakluk pada pindaan.</small>
                         </div>
                     </div>
                 </div>
