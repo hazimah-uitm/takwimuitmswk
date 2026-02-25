@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="wrapper-main">
-        <div class="container py-4 mt-3">
+        <div class="container px-2 px-md-3 py-2 mt-3">
             <div class="mb-2 text-center">
                 <h2 class="fw-500 mb-2" style="font-size: 1.4rem;">TAKWIM UiTM CAWANGAN SARAWAK</h2>
             </div>

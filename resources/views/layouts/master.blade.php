@@ -12,6 +12,187 @@
             /* cover = cantik & konsisten */
             background: #f8f9fa;
         }
+
+        :root {
+            --fc-purple: #392E6A;
+            --fc-purple-weekend: #4e447e;
+            --ungu-utama: #392E6A;
+            --ungu-hover: #2f2558;
+
+            --ungu-soft: rgba(57, 46, 106, .18);
+        }
+
+        /* bagi calendar boleh scroll kiri-kanan bila skrin kecil */
+        #calendar {
+            max-width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* elak grid FullCalendar paksa mengecil sampai pecah */
+        #calendar .fc {
+            min-width: 720px;
+            /* adjust: 600/700/800 ikut selera */
+        }
+
+        /* Mobile: bagi toolbar jadi wrap (tak overflow) */
+        @media (max-width: 576px) {
+            #calendar .fc .fc-toolbar {
+                flex-wrap: wrap;
+                gap: .5rem;
+            }
+
+            #calendar .fc .fc-toolbar-chunk {
+                display: flex;
+                flex-wrap: wrap;
+                gap: .25rem;
+            }
+
+            #calendar .fc .fc-toolbar-title {
+                width: 100%;
+                text-align: center;
+                margin: .25rem 0;
+            }
+        }
+
+        /* ===== BUTTON TOOLBAR (SEMUA) ===== */
+        #calendar .fc .fc-button.fc-button-primary {
+            background-color: var(--ungu-utama) !important;
+            border-color: var(--ungu-utama) !important;
+            color: #fff !important;
+            box-shadow: none !important;
+            text-transform: capitalize;
+        }
+
+        /* modal body scroll bila content panjang */
+        .modal-body {
+            max-height: calc(100vh - 200px);
+            /* adjust ikut header/footer modal */
+            overflow-y: auto;
+        }
+
+        /* optional: kalau gambar/poster besar, bagi responsive & tak overflow */
+        .modal-body img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #calendar .fc .fc-button.fc-button-primary:hover {
+            background-color: var(--ungu-hover) !important;
+            border-color: var(--ungu-hover) !important;
+        }
+
+        /* Button aktif (month/week/list yang dipilih) */
+        #calendar .fc .fc-button.fc-button-primary.fc-button-active {
+            background-color: var(--ungu-hover) !important;
+            border-color: var(--ungu-hover) !important;
+            color: #fff !important;
+        }
+
+        /* Button focus (bila klik) */
+        #calendar .fc .fc-button.fc-button-primary:focus {
+            box-shadow: 0 0 0 .2rem var(--ungu-soft) !important;
+        }
+
+        /* Button disabled (kadang today jadi disabled) */
+        #calendar .fc .fc-button.fc-button-primary:disabled {
+            background-color: rgba(57, 46, 106, .55) !important;
+            border-color: rgba(57, 46, 106, .55) !important;
+            color: #fff !important;
+            opacity: 1 !important;
+        }
+
+        /* Icon arrow < > */
+        #calendar .fc .fc-button .fc-icon {
+            color: #fff !important;
+        }
+
+        /* ===============================
+       HEADER HARI BIASA (MON–FRI)
+       =============================== */
+        #calendar .fc-col-header-cell {
+            background-color: var(--fc-purple);
+            border-color: var(--fc-purple);
+        }
+
+        /* ===============================
+       HEADER WEEKEND (SAT & SUN)
+       =============================== */
+        #calendar th.fc-day-sat,
+        #calendar th.fc-day-sun {
+            background-color: var(--fc-purple-weekend);
+            border-color: var(--fc-purple-weekend);
+        }
+
+        /* Teks nama hari */
+        #calendar .fc-col-header-cell-cushion {
+            color: #fff !important;
+            font-weight: 500;
+            text-decoration: none;
+            padding: .45rem .25rem;
+            display: inline-block;
+        }
+
+        /* ===== FULLCALENDAR TOOLBAR RESPONSIVE ===== */
+        @media (max-width: 576px) {
+
+            /* Toolbar jadi column */
+            #calendar .fc-header-toolbar {
+                flex-direction: column;
+                gap: .5rem;
+            }
+
+            /* Setiap chunk full width */
+            #calendar .fc-toolbar-chunk {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: .25rem;
+            }
+
+            /* Title bulan di tengah */
+            #calendar .fc-toolbar-title {
+                font-size: 1rem;
+                text-align: center;
+                width: 100%;
+                margin: .25rem 0;
+            }
+
+            /* Kecilkan sikit button */
+            #calendar .fc-button {
+                padding: .25rem .5rem;
+                font-size: .75rem;
+            }
+
+            /* Today button jangan terlalu besar */
+            #calendar .fc-today-button {
+                font-size: .7rem;
+            }
+        }
+
+        /* Besarkan title bulan */
+        #calendar .fc .fc-toolbar-title {
+            font-size: 1.2rem !important;
+            font-weight: 600;
+        }
+
+        @media (max-width: 576px) {
+            #calendar .fc .fc-toolbar-title {
+                font-size: 1.15rem !important;
+            }
+        }
+
+        #calendar {
+            --fc-button-bg-color: #392E6A;
+            --fc-button-border-color: #392E6A;
+
+            --fc-button-hover-bg-color: #2f2558;
+            --fc-button-hover-border-color: #2f2558;
+
+            --fc-button-active-bg-color: #2f2558;
+            --fc-button-active-border-color: #2f2558;
+        }
     </style>
 </head>
 

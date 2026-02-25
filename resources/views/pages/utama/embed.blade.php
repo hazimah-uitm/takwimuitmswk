@@ -47,7 +47,43 @@
         :root {
             --fc-purple: #392E6A;
             --fc-purple-weekend: #4e447e;
+            --ungu-utama: #392E6A;
+            --ungu-hover: #2f2558;
+
             --ungu-soft: rgba(57, 46, 106, .18);
+        }
+
+        /* bagi calendar boleh scroll kiri-kanan bila skrin kecil */
+        #publicCalendar {
+            max-width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* elak grid FullCalendar paksa mengecil sampai pecah */
+        #publicCalendar .fc {
+            min-width: 720px;
+            /* adjust: 600/700/800 ikut selera */
+        }
+
+        /* Mobile: bagi toolbar jadi wrap (tak overflow) */
+        @media (max-width: 576px) {
+            #publicCalendar .fc .fc-toolbar {
+                flex-wrap: wrap;
+                gap: .5rem;
+            }
+
+            #publicCalendar .fc .fc-toolbar-chunk {
+                display: flex;
+                flex-wrap: wrap;
+                gap: .25rem;
+            }
+
+            #publicCalendar .fc .fc-toolbar-title {
+                width: 100%;
+                text-align: center;
+                margin: .25rem 0;
+            }
         }
 
         /* ===== BUTTON TOOLBAR (SEMUA) ===== */
@@ -57,6 +93,19 @@
             color: #fff !important;
             box-shadow: none !important;
             text-transform: capitalize;
+        }
+
+        /* modal body scroll bila content panjang */
+        .modal-body {
+            max-height: calc(100vh - 200px);
+            /* adjust ikut header/footer modal */
+            overflow-y: auto;
+        }
+
+        /* optional: kalau gambar/poster besar, bagi responsive & tak overflow */
+        .modal-body img {
+            max-width: 100%;
+            height: auto;
         }
 
         #publicCalendar .fc .fc-button.fc-button-primary:hover {
@@ -114,13 +163,75 @@
             padding: .45rem .25rem;
             display: inline-block;
         }
+
+        /* ===== FULLCALENDAR TOOLBAR RESPONSIVE ===== */
+        @media (max-width: 576px) {
+
+            /* Toolbar jadi column */
+            #publicCalendar .fc-header-toolbar {
+                flex-direction: column;
+                gap: .5rem;
+            }
+
+            /* Setiap chunk full width */
+            #publicCalendar .fc-toolbar-chunk {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: .25rem;
+            }
+
+            /* Title bulan di tengah */
+            #publicCalendar .fc-toolbar-title {
+                font-size: 1rem;
+                text-align: center;
+                width: 100%;
+                margin: .25rem 0;
+            }
+
+            /* Kecilkan sikit button */
+            #publicCalendar .fc-button {
+                padding: .25rem .5rem;
+                font-size: .75rem;
+            }
+
+            /* Today button jangan terlalu besar */
+            #publicCalendar .fc-today-button {
+                font-size: .7rem;
+            }
+        }
+
+        /* Besarkan title bulan */
+        #publicCalendar .fc .fc-toolbar-title {
+            font-size: 1.2rem !important;
+            font-weight: 600;
+        }
+
+        @media (max-width: 576px) {
+            #publicCalendar .fc .fc-toolbar-title {
+                font-size: 1.15rem !important;
+            }
+        }
+
+        #publicCalendar {
+            --fc-button-bg-color: #392E6A;
+            --fc-button-border-color: #392E6A;
+
+            --fc-button-hover-bg-color: #2f2558;
+            --fc-button-hover-border-color: #2f2558;
+
+            --fc-button-active-bg-color: #2f2558;
+            --fc-button-active-border-color: #2f2558;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container py-2 mt-3">
+    <div class="container-fluid px-2 px-md-3 py-2 mt-3">
         <div id="publicCalendar"></div>
-        <small class="text-muted fst-italic">*Sila klik program untuk maklumat lanjut. Tarikh dan masa program tertakluk pada pindaan.</small>
+        <small class="text-muted fst-italic">*Sila klik program untuk maklumat lanjut. Tarikh dan masa program tertakluk
+            pada pindaan.</small>
     </div>
 
     <!-- Modal: Maklumat Program -->
