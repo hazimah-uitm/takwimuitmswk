@@ -79,7 +79,7 @@
                                         {{ ($eventList->currentPage() - 1) * $eventList->perPage() + $loop->iteration }}
                                     </td>
 
-                                    <td>
+                                    <td class="text-wrap">
                                         {{ $event->nama_program ?? '-' }}
                                     </td>
 
@@ -95,10 +95,10 @@
                                         @endif
                                     </td>
 
-                                    <td>{{ $event->lokasi ?? '-' }}</td>
-                                    <td>{{ $event->penganjur ?? '-' }}</td>
+                                    <td class="text-wrap">{{ $event->lokasi ?? '-' }}</td>
+                                    <td class="text-wrap">{{ $event->penganjur ?? '-' }}</td>
                                     <td>{{ $event->peringkat ?? '-' }}</td>
-                                    <td>{{ $event->pegawai_rujukan ?? '-' }}</td>
+                                    <td class="text-wrap">{{ $event->pegawai_rujukan ?? '-' }}</td>
                                     <td class="text-center">
                                         @if (!empty($event->pautan))
                                             <a href="{{ $event->pautan }}" target="_blank" data-bs-toggle="tooltip"
