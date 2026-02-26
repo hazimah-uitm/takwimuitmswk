@@ -14,12 +14,57 @@ class PtjSeeder extends Seeder
     {
         Ptj::insert([
             [
+                'name' => 'BAHAGIAN PENYELIDIKAN DAN JARINGAN INDUSTRI',
+                'type' => 'Pentadbiran',
+                'publish_status' => true
+            ],
+            [
+                'name' => 'PEJABAT REKTOR',
+                'type' => 'Pentadbiran',
+                'publish_status' => true
+            ],
+            [
+                'name' => 'PEJABAT BENDAHARI',
+                'type' => 'Pentadbiran',
+                'publish_status' => true
+            ],
+            [
                 'name' => 'BAHAGIAN INFOSTRUKTUR',
                 'type' => 'Pentadbiran',
                 'publish_status' => true
             ],
             [
                 'name' => 'BAHAGIAN HAL EHWAL AKADEMIK & ANTARABANGSA',
+                'type' => 'Pentadbiran',
+                'publish_status' => true
+            ],
+            [
+                'name' => 'BAHAGIAN HAL EHWAL PELAJAR',
+                'type' => 'Pentadbiran',
+                'publish_status' => true
+            ],
+            [
+                'name' => 'PEJABAT POLIS BANTUAN',
+                'type' => 'Pentadbiran',
+                'publish_status' => true
+            ],
+            [
+                'name' => 'BAHAGIAN PENGURUSAN FASILITI',
+                'type' => 'Pentadbiran',
+                'publish_status' => true
+            ],
+            [
+                'name' => 'BAHAGIAN PENTADBIRAN',
+                'type' => 'Pentadbiran',
+                'publish_status' => true
+            ],
+            [
+                'name' => 'PERPUSTAKAAN',
+                'type' => 'Pentadbiran',
+                'publish_status' => true
+            ],
+            [
+                'name' => 'UNIT KOMUNIKASI KORPORAT',
                 'type' => 'Pentadbiran',
                 'publish_status' => true
             ],
@@ -114,12 +159,12 @@ class PtjSeeder extends Seeder
                 'publish_status' => true
             ],
             [
-                'name' => 'SERVICING (APB, ACIS, PERAKAUNAN, & UNDANG-UNDANG)',
+                'name' => 'AKADEMI PENGAJIAN BAHASA',
                 'type' => 'Akademik',
                 'publish_status' => true
             ],
             [
-                'name' => 'AKADEMI PENGAJIAN BAHASA',
+                'name' => 'FAKULTI SENI LUKIS DAN SENI REKA',
                 'type' => 'Akademik',
                 'publish_status' => true
             ]

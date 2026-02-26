@@ -23,8 +23,8 @@ class SuperAdminSeeder extends Seeder
             'staff_id' => '100001',
             'password' => Hash::make('superadmin123'),
             'position_id' => 1,
-            'ptj_id'        => 1,                  // make sure ptj with id=1 exists
-            'campus_id'     => 2,                  // make sure campus with id=2 exists
+            'ptj_id'        => 5,                  // make sure ptj with id=1 exists
+            'campus_id'     => 4,                  // make sure campus with id=2 exists
             'phone_no'  => '082111111',        // nullable|string
             'user_type'     => 'staf pentadbiran',    // required|string
             'publish_status' => true,                  // required|in:1,0

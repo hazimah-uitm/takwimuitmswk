@@ -30,7 +30,7 @@ class PositionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|unique:positions',
+            'title' => 'required',
             'grade' => 'required',
             'publish_status' => 'required|in:1,0',
         ],[
@@ -69,7 +69,7 @@ class PositionController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|unique:positions,title,' . $id,
+            'title' => 'required',
             'grade' => 'required',
             'publish_status' => 'required|in:1,0',
         ],[

@@ -19,8 +19,8 @@ class UserSeeder extends Seeder
                 'staff_id' => '111111',
                 'email' => 'hazimahpethie@gmail.com',
                 'password' => Hash::make('user123'),
-                'position_id' => 1,
-                'ptj_id'        => 1,                  // make sure ptj with id=1 exists
+                'position_id' => 5,
+                'ptj_id'        => 4,                  // make sure ptj with id=1 exists
                 'campus_id'     => 2,                  // make sure campus with id=2 exists
                 'phone_no'  => '082111111',        // nullable|string
                 'user_type'     => 'staf pentadbiran',    // required|string

@@ -16,7 +16,7 @@ class CreatePositionsTable extends Migration
         Schema::create('positions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('grade')->unique();
+            $table->string('grade');
             $table->boolean('publish_status');
             $table->softDeletes();
             $table->timestamps();
