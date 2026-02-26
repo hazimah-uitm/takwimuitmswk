@@ -66,7 +66,7 @@
                     {{-- Tarikh & Masa Tamat --}}
                     <div class="col-md-6 mb-3">
                         <label for="tamat_at" class="form-label">
-                            Tarikh & Masa Tamat (Jika ada)
+                            Tarikh & Masa Tamat <span class="text-danger">*</span>
                         </label>
 
                         <input type="text" class="form-control {{ $errors->has('tamat_at') ? 'is-invalid' : '' }}"
