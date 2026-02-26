@@ -32,7 +32,7 @@ Route::get('/first-time-login', 'Auth\LoginController@showForm')->name('firsttim
 Route::post('/first-time-login', 'Auth\LoginController@sendLink')->name('firsttimelogin.send');
 
 Route::get('/manual-pengguna', function () {
-    return redirect(url('public/storage/Manual Pengguna Sistem Takwim.pdf'));
+    return redirect(url('public/storage/Manual Pengguna Sistem Takwim UiTM Cawangan Sarawak.pdf'));
 })->name('manual-pengguna');
 
 // routes/web.php
