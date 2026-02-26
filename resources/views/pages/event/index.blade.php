@@ -13,12 +13,6 @@
                 </ol>
             </nav>
         </div>
-
-        <div class="ms-auto">
-            <a href="{{ route('event.trash') }}">
-                <button type="button" class="btn btn-primary mt-2 mt-lg-0">Senarai Rekod Dipadam</button>
-            </a>
-        </div>
     </div>
     <!--end breadcrumb-->
 

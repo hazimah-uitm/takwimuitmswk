@@ -221,7 +221,7 @@ class EventController extends Controller
     public function destroy(Request $request, $id)
     {
         $event = Event::findOrFail($id);
-        $event->delete();
+        $event->forceDelete();
 
         return redirect()->route('event')->with('success', 'Maklumat berjaya dihapuskan');
     }
