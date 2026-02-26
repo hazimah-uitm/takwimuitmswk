@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\EventAttachment;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -14,7 +15,15 @@ class EventController extends Controller
     {
         $perPage = $request->input('perPage', 10);
 
-        $eventList = Event::latest()->paginate($perPage);
+        $user = User::find(auth()->id());
+
+        $query = Event::latest();
+
+        if ($user->hasRole('Pengguna')) {
+            $query->where('created_by', $user->id);
+        }
+
+        $eventList = $query->paginate($perPage);
 
         return view('pages.event.index', [
             'eventList' => $eventList,
@@ -165,7 +174,13 @@ class EventController extends Controller
         $search  = $request->input('search');
         $perPage = $request->input('perPage', 10);
 
+        $user = User::find(auth()->id());
+
         $query = Event::latest();
+
+        if ($user->hasRole('Pengguna')) {
+            $query->where('created_by', $user->id); // atau user_id
+        }
 
         if ($search) {
             $query->where(function ($q) use ($search) {

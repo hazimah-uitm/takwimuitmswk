@@ -21,9 +21,11 @@
         </div>
 
         <div class="ms-auto">
-            <a href="{{ route('event.edit', $event->id) }}" class="btn btn-primary mt-2 mt-lg-0">
-                <i class="bx bxs-edit me-1"></i> Kemaskini Maklumat
-            </a>
+            @if (!auth()->user()->hasRole('Pengguna') || $event->created_by == auth()->id())
+                <a href="{{ route('event.edit', $event->id) }}" class="btn btn-primary mt-2 mt-lg-0">
+                    <i class="bx bxs-edit me-1"></i> Kemaskini Maklumat
+                </a>
+            @endif
         </div>
     </div>
     <!-- End Breadcrumb -->
